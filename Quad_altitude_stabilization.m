@@ -8,10 +8,10 @@ Izz = 8.801*10^-3;
 k = 10^-6; 
 b = 10^-7;
 I = [Ixx, 0, 0; 0, Iyy, 0; 0, 0, Izz];
-kzd = 6; 
-kd = 8; 
-kzp = 8; 
-kp = 9;
+kzd = 10; 
+kd = 10; 
+kzp = 10; 
+kp = 10;
 
 syms x xdot                        % Inertial frame
 x = [0; 0; 2];
@@ -27,7 +27,7 @@ thetadot = deg2rad(2 * deviation * rand(3, 1) - deviation);
 %inputs = [w1^2, w2^2, w3^2, w4^2];
 
 start_time = 0;
-end_time = 5;
+end_time = 20;
 dt = 0.1;
 times = start_time:dt:end_time;
 N = numel(times);
@@ -51,16 +51,13 @@ for t = times
     %x = x + dt * xdot;
     %scatter(t, x(1), 15, 'filled', 'red') 
     %scatter3(x(1), x(2), x(3), 15, 'filled', 'red')
-    %ylim([-20,20])
-    %xlim([-20,20])
-    %zlim([0,10])
-    %scatter(t, 180./pi*theta(1), 15, 'filled', 'red')
-    %hold on
-    %scatter(t, 180./pi*theta(2), 15, 'filled', 'blue')
-    %scatter(t, 180./pi*theta(3), 15, 'filled', 'green')
-    scatter(t, x(3), 15, 'filled', 'red')
-    ylim([-1,3])
-    xlim([0,5])
+    scatter(t, 180./pi*theta(1), 15, 'filled', 'red')
+    hold on
+    scatter(t, 180./pi*theta(2), 15, 'filled', 'blue')
+    scatter(t, 180./pi*theta(3), 15, 'filled', 'green')
+    %scatter(t, x(3), 10, 'filled', 'red')
+    ylim([-10,20])
+    xlim([0,20])
     pause(0.00001)
     %hold on
 end
