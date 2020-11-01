@@ -1,3 +1,5 @@
+%%PHYSICAL QUANTITIES
+
 global g m L Ixx Iyy Izz k b          % physical constants  
 g = 9.81; 
 m = 0.468; 
@@ -20,6 +22,8 @@ thetadot = [0; 0; 0];
  
 %syms w1 w2 w3 w4
 %inputs = [w1^2, w2^2, w3^2, w4^2];
+
+%%SIMULATION
 
 start_time = 0;
 end_time = 20;
@@ -51,6 +55,8 @@ for t = times
     pause(0.00001)
     hold on
 end
+
+%%FUNCTIONS
 
 function omegadot = angular_acceleration(inputs, omega, I, L, b, k)
     tau = torques(inputs, L, b, k);
